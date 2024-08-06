@@ -8,23 +8,47 @@
  * - Області видимості
  */
 
-console.log("Start!");
+/*
+function declaration
+* створення функції
+function назваФункції (список параметрів) {
+  тіло функції
+}
+
+* виклик фукнції
+назваФункції(список аргументів);
+
+
+
+
+*/
+
+// console.log("Start!");
 
 function greeting(firstName, lastName) {
+  // firstName, lastName - параметри фукнції. Це звичайні змінні які доступні тільки всередині фукції. Значення цих змінних отримується під час виклику фукнції у вигляді аргументів.
   console.log(`Welcome ${firstName} ${lastName}!`);
 }
 
-console.log("End!");
+// greeting("Alex", "Simak"); // "Alex", "Simak" - аргументи це просто значення для параметрів функції
+// greeting("Oleg", "Dou");
+// greeting("Maria", "Trust");
+// greeting("Ryan", "Gosling");
+
+// console.log("End!");
 
 //! ===========================
 
-// function sum(numA, numB) {
-//   const result = numA + numB;
+function sum(numA, numB) {
+  const result = numA + numB;
 
-//   return result;
-// }
+  return result;
+  // 1. зупиняє виконання фукнції
+  // 2. повертає значення у зовнішній код як результат роботи вашої фукнції
+}
+// якщо у фукнції відсутній оператор return то вона за замовчуванням повертає undefined
 
-// const total = sum(20, 30);
+const total = sum(20, 30); // зберігаю результат роботи фукнції sum (те, що вона повертає) в константу total
 
 // console.log(total);
 
@@ -34,6 +58,10 @@ console.log("End!");
 ? Напишіть функцію getRectArea(sideA, sideB) для обчислення площі прямокутника.
 ? Сторони прямокутника будуть переденні до параметрів sideA та sideB.
 */
+
+function getRectArea(sideA, sideB) {
+  return sideA * sideB;
+}
 
 // console.log(getRectArea(8, 11)); // 88
 // console.log(getRectArea(18, 11)); // 198
@@ -51,8 +79,17 @@ console.log("End!");
  ? Індекс маси тіла необхідно округлити до однієї цифри після коми.
  */
 
-// function calcBMI(weight, height) {}
+function calcBMI(weight, height) {
+  weight = Number(weight);
+  height = Number(height);
 
-// const bmi = calcBMI('88.3', '1.75');
+  const result = weight / height ** 2;
 
-// console.log(bmi); // 28.8
+  return Number(result.toFixed(1));
+}
+
+const bmi = calcBMI("88.3", "1.75");
+
+console.log(bmi); // 28.8
+
+console.log(calcBMI("95.6", "1.93"));
