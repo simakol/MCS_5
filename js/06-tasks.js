@@ -7,12 +7,31 @@
 ? [45 до 60) - четверта чверть години
 */
 
-// const minutes = 15;
+const minutes = 55;
+
+//* v1
+// const quarter = Math.floor(minutes / 15) + 1;
+
+// console.log(`Quarter: ${quarter}`);
+
+//* v2
+
+// if (minutes >= 0 && minutes < 15) {
+//   console.log('Quarter: 1');
+// } else if (minutes < 30) {
+//   console.log('Quarter: 2');
+// } else if (minutes < 45) {
+//   console.log('Quarter: 3');
+// } else if (minutes < 60) {
+//   console.log('Quarter: 4');
+// } else {
+//   console.log('Incorrect value');
+// }
 
 /*
 ?  Перепишіть код за допомогою однієї конструкції switch:
 */
-        
+
 // const number = Number(prompt('Введіть число між 0 та 3'));
 
 // if (number === 0) {
@@ -23,6 +42,26 @@
 //   console.log('Ви ввели число 2, а може й 3');
 // } else {
 //   console.log('Ви ввели якесь інше число');
+// }
+
+// switch (number) {
+//   case 0: {
+//     console.log('Ви ввели число 0');
+//     break;
+//   }
+//   case 1: {
+//     console.log('Ви ввели число 1');
+//     break;
+//   }
+//   case 2:
+//   case 3: {
+//     console.log('Ви ввели число 2, а може й 3');
+//     break;
+//   }
+
+//   default: {
+//     console.log('Ви ввели якесь інше число');
+//   }
 // }
 
 /*
@@ -37,7 +76,7 @@
 // const isFriend = true;
 // const isDnd = false;
 
-// let canOpenChat = null;
+// let canOpenChat = isOnline && isFriend && !isDnd;
 
 // console.log('Чи можна відкрити чат? ', canOpenChat);
 
@@ -48,4 +87,14 @@
 ? Для чисел які кратні 3 та 5 = 'FizzBuzz'
 */
 
-;
+// for (let i = 1; i <= 100; i += 1) {
+//   if (i % 3 === 0 && i % 5 === 0) {
+//     console.log(`${i} FizzBuzz`);
+//   } else if (i % 5 === 0) {
+//     console.log(`${i} Buzz`);
+//   } else if (i % 3 === 0) {
+//     console.log(`${i} Fizz`);
+//   } else {
+//     console.log(i);
+//   }
+// }
