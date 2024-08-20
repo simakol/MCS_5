@@ -10,6 +10,14 @@
  * - Додавання властивостей
  */
 
+// console.log(['Alex', 'Oleg', 'Maria']);
+
+// console.log({
+//   firstName: 'John',
+//   lastName: 'Dou',
+//   age: 30,
+// });
+
 const film = {
   title: 'Harry Potter',
   description: 'Lorem ipsum dolor sit amet consectetur',
@@ -23,17 +31,22 @@ const film = {
 
 console.log(film);
 
-// console.log(film.title);
-// console.log(film.actors);
+// через крапку ми можемо звертатись, коли знаємо назву ключа в обʼєкті
+console.log(film.title);
+console.log(film.actors);
+console.log(film.www);
 
-// console.log(film['description']);
-// console.log(film['rating']);
+// через квадратні дужки ми можемо звертати тоді, коли не знаємо назву ключа, а отримуємо ключ динамічно (наприклад, в циклі, в змінній і тд)
+console.log(film['description']);
+console.log(film['rating']);
 
-// const key = 'title';
+const key = 'title';
 
-// console.log(film[key]);
+console.log(film[key]); // film['title']
+console.log(film.key); //! undefined
 
-// console.log(film.translations.ua);
+console.log(film.translations.ua);
+console.log(film['translations']['ua']);
 
 film.rating = 9;
 

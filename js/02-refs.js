@@ -9,6 +9,7 @@ const user = {
   firstName: 'John',
   lastName: 'Dou',
 };
+
 const userCopy = user;
 
 console.log('user:', user);

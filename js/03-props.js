@@ -5,13 +5,15 @@
  * - Обчислювальні властивості
  */
 
-// const username = 'Mango';
-// const email = 'mango@mail.com';
+const username = 'Mango';
+const email = 'mango@mail.com';
 
-// const credentials = {
-//   username,
-//   email,
-// };
+const credentials = {
+  // username: username,
+  // email: email,
+  username,
+  email,
+};
 
 // console.log(credentials);
 // console.log(credentials.username);
@@ -21,11 +23,11 @@
   <input type="text" name="color">
 */
 
-// const inputName = 'color';
-// const inputValue = 'rgb(255, 0, 255)';
+const inputName = 'color';
+const inputValue = 'rgb(255, 0, 255)';
 
-// const colorPickerData = {
-//   [inputName]: inputValue,
-// };
+const colorPickerData = {
+  [inputName]: inputValue, // color: 'rgb(255, 0, 255)'
+};
 
-// console.log(colorPickerData);
+console.log(colorPickerData);
