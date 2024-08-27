@@ -6,8 +6,10 @@
  * - Інлайн стрілочні функції
  */
 
+// Стрілочна фукнція - це синтаксичний цукор фукцніонального виразу (fn expression) з трьома особливостями (крім синтаксису). 1. Немає локальної змінної arguments. 2. Існує поняття неявного повернення (можна не писати оператор return у випадках коли немає фігурних дужок і тіло функції складається з 1 інструкції). 3. Не має власного this, запамʼятовує this батька (зовнішньої області) і після цого запамʼятовування (під час створення фукнції) змінити цей this буде неможливо ніяким способом.
+
 //* Два і більше параметрів
-// const sum =  (numA, numB) => {
+// const sum = (numA, numB) => {
 //   return numA + numB;
 // };
 
@@ -42,6 +44,10 @@
 // console.log(sum(20, 30, 40, 2, 4));
 
 //* Неявне повернення
+// const sum = (numA, numB) => {
+//   return numA + numB;
+// };
+
 // const sum = (numA, numB) => numA + numB;
 
 // console.log(sum(20, 30));
@@ -50,11 +56,11 @@
 ? Виконайте рефакторинг коду за допомогою стрілочних функцій.
 */
 
-// function createProduct(partialProduct, callback) {
-//   const product = { id: Date.now(), ...partialProduct };
+function createProduct(partialProduct, callback) {
+  const product = { id: Date.now(), ...partialProduct };
 
-//   callback(product);
-// }
+  callback(product);
+}
 
 // function logProduct(product) {
 //   console.log(product);
@@ -64,12 +70,27 @@
 //   console.log(product.price * product.quantity);
 // }
 
-// createProduct({ name: '🍎', price: 30, quantity: 3 }, logProduct);
-// createProduct({ name: '🍋', price: 20, quantity: 5 }, logTotalPrice);
+// createProduct({ name: '🍎', price: 30, quantity: 3 }, product =>
+//   console.log(product)
+// );
+
+// createProduct({ name: '🍋', price: 20, quantity: 5 }, product =>
+//   console.log(product.price * product.quantity)
+// );
 
 /*
 ? Виконайте рефакторинг коду за допомогою стрілочних функцій. (each)
 */
+
+const each = (arr, callback) => {
+  const newArr = [];
+
+  for (const el of arr) {
+    newArr.push(callback(el));
+  }
+
+  return newArr;
+};
 
 // Повна версія
 // console.log(
@@ -78,7 +99,7 @@
 //   })
 // );
 // Скорочена версія
-// console.log(each([64, 49, 36, 25, 16], value => value * 2));
+console.log(each([64, 49, 36, 25, 16], value => value * 2));
 
 // Повна версія
 // console.log(
@@ -87,7 +108,7 @@
 //   })
 // );
 // Скорочена версія
-// console.log(each([64, 49, 36, 25, 16], value => value - 10));
+console.log(each([64, 49, 36, 25, 16], value => value - 10));
 
 // Повна версія
 // console.log(
@@ -96,7 +117,7 @@
 //   })
 // );
 // Скорочена версія
-// console.log(each([64, 49, 36, 25, 16], value => Math.sqrt(value)));
+console.log(each([64, 49, 36, 25, 16], value => Math.sqrt(value)));
 
 // Повна версія
 // console.log(
@@ -105,7 +126,7 @@
 //   })
 // );
 // Скорочена версія
-// console.log(each([1.5, 2.1, 16.4, 9.7, 11.3], value => Math.ceil(value)));
+console.log(each([1.5, 2.1, 16.4, 9.7, 11.3], value => Math.ceil(value)));
 
 // Повна версія
 // console.log(
@@ -114,4 +135,4 @@
 //   })
 // );
 // Скорочена версія
-// console.log(each([1.5, 2.1, 16.4, 9.7, 11.3], value => Math.floor(value)));
+console.log(each([1.5, 2.1, 16.4, 9.7, 11.3], value => Math.floor(value)));
