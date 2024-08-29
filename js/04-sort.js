@@ -12,6 +12,7 @@
 
 // const numbers = [1, 9, 6, 2, 3, 10, 20];
 // const sortedNumbers = numbers.toSorted();
+// якщо ви не передаєте фукнцію порівняння в якості колбеку, то за замовчуванням сортування буде відбуватись за лексикографічним словником(Unicode)
 
 // console.log('numbers: ', numbers);
 // console.log('sortedNumbers: ', sortedNumbers);
@@ -28,17 +29,16 @@
  */
 
 // const numbers = [1, 6, 2, 3, 9, 10, 22, 34];
-// const sortedNumbers = numbers.toSorted((currentEl, nextEl) => {
-//   return nextEl - currentEl;
-// });
+// const sortedNumbers = numbers.toSorted((currentEl, nextEl) => nextEl - currentEl); // сортування за спаданням
+
+// const sortedNumbers = numbers.toSorted((currentEl, nextEl) => currentEl - nextEl); // сортування за зростанням
 
 // console.log('numbers: ', numbers);
 // console.log('sortedNumbers: ', sortedNumbers);
 
 // const letters = ['b', 'd', 'a', 'c', 'X', 'Y', 'A'];
-// const sortedLetters = letters.toSorted((currentEl, nextEl) => {
-//   return nextEl.localeCompare(currentEl);
-// });
+// const sortedLetters = letters.toSorted((currentEl, nextEl) => nextEl.localeCompare(currentEl)); // зворотній алфавітний порядок
+// const sortedLetters = letters.toSorted((currentEl, nextEl) => currentEl.localeCompare(nextEl)); // алфавітний порядок
 
 // console.log('letters: ', letters);
 // console.log('sortedLetters: ', sortedLetters);
@@ -46,6 +46,7 @@
 // console.log('a'.localeCompare('b'));
 // console.log('b'.localeCompare('a'));
 // console.log('a'.localeCompare('a'));
+// console.log('A'.localeCompare('a'));
 
 /*
  * Сортування масиву об'єктів
@@ -59,11 +60,11 @@ const players = [
 ];
 
 //? За ігровим часом
-// const sortedByWorstPlayers = []
+// const sortedByWorstPlayers = players.toSorted((a, b) => a.timePlayed - b.timePlayed);
 
 // console.table(sortedByWorstPlayers);
 
 //? За першою літерою імені
-// const sortedByName = []
+// const sortedByName = players.toSorted((a, b) => a.name[0].localeCompare(b.name[0]));
 
 // console.table(sortedByName);
