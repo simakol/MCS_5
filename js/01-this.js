@@ -6,7 +6,6 @@
  * - Контекст методу об'єкта
  */
 
-
 /*
 * Правила визначення this
 
@@ -50,6 +49,17 @@
 
 // greet();
 
+// приклад виклику фукнції з контекстом (треба мати обʼєкт від лиця якого буде викликатись фукція (в контексті якого)). Як варіант, це передача посилання на фукцію в обʼєкт в якості методу, або виклик методів call/apply для ручного встановлення контексту
+
+// const user = {
+//   name: 'Oleg',
+//   greet,
+// };
+
+// console.log(user);
+
+// user.greet()
+
 //* Присвоєння функції як методу об'єкта
 // const showThis = function () {
 //   console.log('This --->', this);
@@ -88,11 +98,11 @@
 //   name: 'Luis',
 //   age: 30,
 
-//   showUserThis: function () {
+//   showUserThis() {
 //     console.log('This --->', this);
 //   },
 
-//   showUserName: function () {
+//   showUserName() {
 //     console.log(this.name);
 //   },
 // };
@@ -100,8 +110,10 @@
 // user.showUserThis();
 // user.showUserName();
 
+//? оскільки showUserThis це фукція, ми можемо зберегти посилання на неї кудись в інше місце, наприклад в костанту showThis. Коли ми зберігаємо посилання на фукнцію, ми її не викликаємо (щоб вона не виконалась) і це означає що ми втрачаємо контекст this. Оскільки метод не було викликано, фукнція не відпрацювала, this невідомий.
 // const showThis = user.showUserThis;
 
+//? викликаємо фукнцію showThis, яка по суті являється методом showUserThis обʼєкту user. Звертаємо увагу на те, що зліва від виклику немає ніякого обʼєкту, це означає те, що наша фукнція була викликана без контексту, тобто, немає обʼєкту, який би її викликав. А це значить, що в суворому режимі ми отримаємо undefined в якості значення для нашого this
 // showThis();
 
 // const showName = user.showUserName;
@@ -113,11 +125,11 @@
 //   name: 'Luis',
 //   age: 30,
 
-//   showThis: function () {
+//   showThis() {
 //     console.log('This --->', this);
 //   },
 
-//   showName: function () {
+//   showName() {
 //     console.log(this.name);
 //   },
 // };
@@ -126,9 +138,11 @@
 //   // callback = user.showName;
 
 //   callback();
+//   // під час виклику колбеку ми не вказуємо обʼєкт, який його викликає, тому this завжди буде undefined
 // };
 
 // someFunction(user.showName);
+// оскільки this визначається виключно під час виклику фукнції, а при передачі фукції як колбек, нам не можна її викликати - то як наслідок, ми втрачаємо контекст
 
 /*
  * This у стрілочних функціях. Стрілочні функції не мають свого this,
@@ -138,6 +152,11 @@
 // const user = {
 //   name: 'Luis',
 //   age: 30,
+
+//   //   changeAge(newAge) {
+//   //     console.log(this);
+//   //     this.age = newAge;
+//   //   },
 
 //   changeAge: newAge => {
 //     console.log(`this ---->`, this);

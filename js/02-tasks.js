@@ -1,7 +1,7 @@
 //? Що буде виведено в консоль
 
 // function foo() {
-//   console.log(this);
+//   console.log(this); // undefined
 // }
 
 // foo();
@@ -20,15 +20,15 @@
 //   },
 // };
 
-// book.showThis();
+// book.showThis(); // book
 
 // const outerShowThis = book.showThis;
 
-// outerShowThis();
+// outerShowThis(); // undefined
 
 // const outerShowTitle = book.showTitle;
 
-// outerShowTitle();
+// outerShowTitle(); // err
 
 //? Що буде виведено в консоль
 
@@ -42,7 +42,7 @@
 
 // const goFn = user.go;
 
-// goFn();
+// goFn(); // undefined
 
 /*
 ? Тут функція makeUser повертає об'єкт.
@@ -50,15 +50,17 @@
 */
 
 // const makeUser = function () {
+//   // this = undefined
 //   return {
 //     name: 'Джон',
-//     ref: this,
+//     ref: this, // this посилається на те, в контексті чого була викликана ФУНКЦІЯ (не дивлячись на те, що this знаходиться всередині обʼєкту, він не має нічого спільного з ним, бо this стосується виключно фукнцій)
 //   };
 // };
 
-// const user = makeUser();
+// const user = makeUser(); // this = undefined
 
-// console.log(user.ref.name);
+// console.log(user.ref); // undefined
+// console.log(user.ref.name); // err
 
 //? Що буде виведено в консоль
 
@@ -73,7 +75,18 @@
 // }
 
 // const user = makeUser();
+/*
 
+const user = {
+  name: 'Джон',
+  ref() {
+    return this;
+   },
+}
+*/
+
+// console.log(user);
+// console.log(user.ref());
 // console.log(user.ref().name);
 
 /*
@@ -91,7 +104,17 @@
 //   ],
 
 //   calcTotalPrice(stoneName) {
-//   
+//     const currentStone = this.stones.find(
+//       stone => stone.name.toLowerCase() === stoneName.toLowerCase()
+//     );
+
+//     if (!currentStone) {
+//       console.error(`${stoneName} не знайдено!`);
+//       return 0;
+//     }
+
+//     return currentStone.price * currentStone.quantity;
+//   },
 // };
 
 // console.log(chopShop.calcTotalPrice('Emerald')); // 5200

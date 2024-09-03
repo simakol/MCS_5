@@ -9,11 +9,11 @@
 /*
 всі ці методи потрібні для привʼязки нового контексту до вашої функції
 
-call - викликає фукнцію на місці з новим контекстом (аргумети передаються через кому)
+* call - викликає фукнцію на місці з новим контекстом (аргумети передаються через кому)
 
-apply - викликає фукнцію на місці з новим контекстом (аргумети передаються у вигляді масиву)
+* apply - викликає фукнцію на місці з новим контекстом (аргумети передаються у вигляді масиву)
 
-bind - повертає копію фукнції з новим контекстом, щоб можна було викликати її пізніше (наприклад, коли йде передача колбек фукнції). (аргумети передаються через кому)
+* bind - повертає копію фукнції з новим контекстом, щоб можна було викликати її пізніше (наприклад, коли йде передача колбек фукнції). (аргумети передаються через кому)
 */
 
 //* Функції це об'єкти зі своїми властивостями та методами
@@ -29,10 +29,10 @@ bind - повертає копію фукнції з новим контекст
 
 //? Викличте функцію showFullName у контексті об'єкта user
 
-// const showFullName = function (message, a, b, c) {
-//   console.log(`${message} ${this.firstName} ${this.lastName}`);
-//   console.log(a, b, c);
-// };
+const showFullName = function (message, a, b, c) {
+  console.log(`${message} ${this.firstName} ${this.lastName}`);
+  console.log(a, b, c);
+};
 
 // const user = {
 //   firstName: 'Ernest',
@@ -40,6 +40,7 @@ bind - повертає копію фукнції з новим контекст
 //   age: 30,
 // };
 
+// першим аргументом передається обʼєкт який повинен стати this'ом всередині фукнції яка викликається, тобто ви вручну задаєте контекст виклику.
 // showFullName.call(user, 'Hello', 1, 2, 3);
 // showFullName.apply(user, ['Hello', 1, 2, 3]);
 
@@ -69,10 +70,21 @@ bind - повертає копію фукнції з новим контекст
 //   color: 'green',
 // };
 
+// console.log('hat', hat);
+// console.log('sweater', sweater);
+
+// changeColor.call(hat, 'red');
+
+// console.log('hat', hat);
+
+// changeColor.call(sweater, 'grey');
+
+// console.log('sweater', sweater);
+
 //? Створіть копію функції changeColor з привʼязаним контекстом
 
 // const changeColor = function (color) {
-//   // console.log('changeColor -> this', this);
+//   console.log('changeColor -> this', this);
 
 //   this.color = color;
 // };
@@ -81,6 +93,7 @@ bind - повертає копію фукнції з новим контекст
 //   color: 'black',
 // };
 
+// // повернулась копія функції changeColor з привʼязаним контекстом на обʼєкт hat і ця копія зберіглась в константу changeHatColor
 // const changeHatColor = changeColor.bind(hat);
 
 // changeHatColor('yellow');
@@ -91,26 +104,24 @@ bind - повертає копію фукнції з новим контекст
 
 // console.log(hat);
 
-// const sweater = {
-//   color: 'green',
-// };
-
 //? Передайте метод обʼєкта в якості callback функції
 
-const user = {
-  name: 'Luis',
-  age: 30,
+// const user = {
+//   name: 'Luis',
+//   age: 30,
 
-  showThis: function () {
-    console.log('This --->', this);
-  },
+//   showThis() {
+//     console.log('This --->', this);
+//   },
 
-  showName: function (newName) {
-    console.log(this.name);
-  },
-};
+//   showName() {
+//     console.log(this.name);
+//   },
+// };
 
-const someFunction = callback => {
-  callback();
-};
+// const someFunction = callback => {
+//   callback();
+// };
 
+// someFunction(user.showName.bind(user)); 
+// в якості колбеку ви вже будете передавати копію методу showName у якому this буде привʼязано до обʼєкту user
