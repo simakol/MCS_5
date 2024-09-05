@@ -4,22 +4,46 @@
 ? гетер та сетер login та email.
  */
 
-// const mango = new User('Mango', 'mango@dog.woof');
+class User {
+  #login;
+  #email;
 
-// console.log(mango);
+  constructor(login, email) {
+    this.#login = login;
+    this.#email = email;
+  }
 
-// console.log(mango.login); // Mango
-// mango.login = 'Mangodoge';
-// console.log(mango.login); // Mangodoge
+  get login() {
+    return this.#login;
+  }
+  get email() {
+    return this.#email;
+  }
 
-// console.log(mango.email); // mango@dog.woof
-// mango.email = 'gaatke@fucvod.com';
-// console.log(mango.email); // gaatke@fucvod.com
+  set login(newLogin) {
+    this.#login = newLogin;
+  }
+  set email(newEmail) {
+    this.#email = newEmail;
+  }
+}
 
-// const poly = new User('Poly', 'poly@mail.com');
+const mango = new User('Mango', 'mango@dog.woof');
 
-// console.log(poly);
+console.log(mango);
 
-// console.log(poly.login); // Poly
-// poly.login = 'Polycutie';
-// console.log(poly.login); // Polycutie
+console.log(mango.login); // Mango
+mango.login = 'Mangodoge';
+console.log(mango.login); // Mangodoge
+
+console.log(mango.email); // mango@dog.woof
+mango.email = 'gaatke@fucvod.com';
+console.log(mango.email); // gaatke@fucvod.com
+
+const poly = new User('Poly', 'poly@mail.com');
+
+console.log(poly);
+
+console.log(poly.login); // Poly
+poly.login = 'Polycutie';
+console.log(poly.login); // Polycutie

@@ -9,13 +9,42 @@
 ? - removeItem(item) - отримує товар і, якщо він є, видаляє його з поточних.
  */
 
-// const storage = new Storage(['🍎', '🍋', '🍇', '🍑']);
+class Storage {
+  constructor(items) {
+    this.items = items;
+  }
 
-// const items = storage.getItems();
-// console.table(items); // [ '🍎', '🍋', '🍇', '🍑' ]
+  getItems() {
+    return this.items;
+  }
 
-// storage.addItem('🍌');
-// console.table(storage.items); // [ '🍎', '🍋', '🍇', '🍑', '🍌' ]
+  addItem(item) {
+    this.items.push(item);
+  }
 
-// storage.removeItem('🍋');
-// console.table(storage.items); // [ '🍎', '🍇', '🍑', '🍌' ]
+  removeItem(item) {
+    const indexToDelete = this.items.indexOf(item);
+
+    console.log(indexToDelete);
+
+    if (indexToDelete === -1) {
+      console.error(`Товару ${item} немає на складі!`);
+      return;
+    }
+
+    this.items.splice(indexToDelete, 1);
+  }
+}
+
+const storage = new Storage(['🍎', '🍋', '🍇', '🍑']);
+
+const items = storage.getItems();
+console.table(items); // [ '🍎', '🍋', '🍇', '🍑' ]
+
+storage.addItem('🍌');
+console.table(storage.items); // [ '🍎', '🍋', '🍇', '🍑', '🍌' ]
+
+storage.removeItem('🍋');
+console.table(storage.items); // [ '🍎', '🍇', '🍑', '🍌' ]
+
+storage.removeItem('6');
