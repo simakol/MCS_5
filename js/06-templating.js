@@ -44,3 +44,19 @@ const pictures = [
   </a>
 </li>
 */
+
+const createGalleryItem = item => `<li class="gallery-item">
+  <a href="#">
+    <img src="${item.url}" alt="${item.alt}" width="${item.width}" height="${item.height}">
+  </a>
+</li>`;
+
+const galleryEl = document.querySelector('.js-gallery');
+
+const galleryMarkup = pictures.map(createGalleryItem).join('');
+
+console.log(galleryMarkup);
+
+// galleryEl.innerHTML = galleryMarkup; //? у випадках коли треба видалити попередній контент з контейнеру і замінити його на новий
+
+galleryEl.insertAdjacentHTML('beforeend', galleryMarkup); //? у випадках, коли треба зберегти вже існуючий контект але додати до нього нові елементи

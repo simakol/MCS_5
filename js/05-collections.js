@@ -41,3 +41,43 @@ const pictures = [
   </a>
 </li>
 */
+
+const createGalleryItem = item => {
+  // creale a li
+
+  const liEl = document.createElement('li');
+  liEl.classList.add('gallery-item');
+
+  // create a link
+
+  const linkEl = document.createElement('a');
+  linkEl.href = '#';
+
+  // create an image
+
+  const imageEl = document.createElement('img');
+
+  imageEl.src = item.url;
+  imageEl.alt = item.alt;
+  imageEl.width = item.width;
+  imageEl.height = item.height;
+
+  // append nodes
+
+  linkEl.append(imageEl);
+  liEl.append(linkEl);
+
+  return liEl;
+};
+
+// створюємо масив вузлів лішок на основі масиву обʼєктів з картинками
+
+// const galleryNodes = pictures.map(picture => createGalleryItem(picture))
+const galleryNodes = pictures.map(createGalleryItem);
+
+console.log(galleryNodes);
+
+const galleryEl = document.querySelector('.js-gallery');
+
+
+galleryEl.append(...galleryNodes)

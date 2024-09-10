@@ -17,20 +17,25 @@
 // console.dir(navLinkEl);
 
 //* Робота з класами
-// const currentPage = '/portfolio';
+const currentPage = '/portfolio';
 
-// const navLinkEl = document.querySelector(`a[href="${currentPage}"]`);
+const navLinkEl = document.querySelector(`a[href="${currentPage}"]`);
 
-// navLinkEl.classList.add('current-link', 'some-class');
-// navLinkEl.classList.remove('some-class');
+console.log(navLinkEl);
+console.log(navLinkEl.classList);
 
-// console.log(navLinkEl.classList.contains('site-nav-link'));
+navLinkEl.classList.add('current-link', 'some-class');
+navLinkEl.classList.remove('some-class');
 
-// navLinkEl.classList.toggle('some-class');
-// navLinkEl.classList.toggle('some-class');
-// navLinkEl.classList.toggle('some-class');
+console.log(navLinkEl.classList.contains('site-nav-link')); // true
+console.log(navLinkEl.classList.contains('some-class')); // false
 
-// navLinkEl.classList.replace('some-class', 'my-new-class');
+// додає клас, коли його немає і видаляє, коли він є
+navLinkEl.classList.toggle('some-class');
+navLinkEl.classList.toggle('some-class');
+navLinkEl.classList.toggle('some-class');
+
+navLinkEl.classList.replace('some-class', 'my-new-class');
 
 // console.dir(navLinkEl);
 

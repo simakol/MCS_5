@@ -16,6 +16,13 @@
 /*
  * Властивості «навігації» по DOM-вузлах
  */
-// const siteNavEl = document.querySelector('.js-site-nav');
+const siteNavEl = document.querySelector('.js-site-nav');
 
-// console.log(siteNavEl.previousElementSibling);
+console.log(siteNavEl);
+console.log(siteNavEl.children);
+console.log(siteNavEl.firstChild); // повертає першу дитину будь-якого вузла
+console.log(siteNavEl.firstElementChild); // повертає першу дитину  вузла елементу
+console.log(siteNavEl.lastElementChild);
+
+console.log(siteNavEl.previousElementSibling);
+console.log(siteNavEl.nextElementSibling);
