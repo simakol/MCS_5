@@ -89,3 +89,20 @@ img {
 .car-list-title {
   margin-bottom: 6px;
 }
+
+.not-found-text {
+  display: block;
+  text-align: center;
+  font-size: 36px;
+}
+
+.not-found-text.hidden {
+  display: none;
+}
+
+.selected-text {
+  padding: 5px 15px;
+  background-color: #fd9222;
+  color: white;
+  border-radius: 10px;
+}
