@@ -1,0 +1,91 @@
+body {
+  background-color: #fafafa;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.container {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.car-search {
+  display: flex;
+  column-gap: 20px;
+  margin-bottom: 40px;
+}
+
+.car-input {
+  width: 300px;
+  height: 40px;
+  border-radius: 10px;
+  padding-left: 16px;
+  border: 1px solid #303030;
+}
+
+.car-select {
+  height: 100%;
+  width: 140px;
+  border-radius: 10px;
+}
+
+.car-button {
+  min-width: 130px;
+  border: none;
+  border-radius: 100px;
+  color: #ffffff;
+  background-color: #fd9222;
+  transition: color 250ms linear, background-color 250ms linear;
+}
+
+.car-button:hover,
+.car-button:focus {
+  color: #fd9222;
+  background-color: #fcf1e0;
+}
+
+.car-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.car-list-item {
+  width: calc((100% - 40px) / 3);
+}
+
+.car-list-img {
+  width: 100%;
+  height: 210px;
+  object-fit: cover;
+}
+
+.car-list-text-content {
+  padding: 20px;
+  box-shadow: 0px 8px 6px 0 #cecece;
+}
+
+.car-list-title {
+  margin-bottom: 6px;
+}
