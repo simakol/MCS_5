@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task 2</title>
+    <link rel="stylesheet" href="../style.css" />
+    <style>
+      * {
+        box-sizing: border-box;
+        font-family: sans-serif;
+      }
+
+      .container {
+        width: 90vw;
+        margin: 50px auto;
+        text-align: center;
+      }
+
+      .list {
+        margin-top: 25px;
+        display: inline-flex;
+        flex-direction: column;
+        text-align: left;
+        gap: 15px;
+        border-radius: 10px;
+        box-shadow: 2px 3px 5px black;
+        padding: 50px;
+        width: 40%;
+      }
+
+      .list > li {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+      }
+
+      .list > li.line-through > span {
+        text-decoration: line-through;
+      }
+
+      .list > li > button {
+        background-color: #d42a2abe;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <form id="mainForm">
+        <input type="text" name="task" />
+        <button type="submit">Add +</button>
+      </form>
+      <ol class="list js-list">
+        <!-- <li>Go shopping <button>Delete</button></li>
+        <li>Hit the gym <button>Delete</button></li> -->
+      </ol>
+    </div>
+    <script type="module" src="../js/02-task.js"></script>
+  </body>
+</html>
