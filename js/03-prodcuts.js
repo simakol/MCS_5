@@ -60,3 +60,44 @@ const products = [
     description: '10-inch tablet with high performance and a Retina display.',
   },
 ];
+
+const productListEl = document.querySelector('.js-products');
+
+function createPruductCard(product) {
+  return `<li class="product-card" data-id="${product.id}">
+  <img src="${product.img}" alt="${product.name}" class="product-card-img" />
+  <div class="product-card-text-content">
+    <h2 class="product-card-title">${product.name}</h2>
+    <p class="product-card-price">Price: ${product.price} uah.</p>
+  </div>
+</li>`;
+}
+
+const productsListMarkup = products.map(createPruductCard).join('');
+
+productListEl.innerHTML = productsListMarkup;
+
+productListEl.addEventListener('click', handleOpenCardModal);
+
+function handleOpenCardModal(event) {
+  if (event.target === event.currentTarget) {
+    return;
+  }
+
+  const liEl = event.target.closest('.product-card'); // шукає найближчого батька з переданим селектором, в даному прикладі ми шукаємо найближчий елемент з класом product-card для того щоб потім дістати айді (навіть якщо ми клікнемо по картинці чи по будь-якому іншому елементу ми все одно отримаємо наближчого батька, тобто нашу лішку)
+
+  const productId = Number(liEl.dataset.id);
+
+  const currentProduct = products.find(product => productId === product.id);
+
+  const instance = basicLightbox.create(`
+    <img class="product-modal-img" src="${currentProduct.img}" alt="${currentProduct.name}" />
+  <div class="product-modal-text-content">
+  <h2 class="product-modal-title">${currentProduct.name}</h2>
+  <p class="product-modal-price">Price: ${currentProduct.price} uah.</p>
+  <p class="product-modal-desc">${currentProduct.description}</p>
+</div>
+  `);
+
+  instance.show();
+}
