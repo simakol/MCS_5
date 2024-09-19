@@ -15,20 +15,13 @@ const product = {
 };
 
 //* Деструктуризація в середині функції
-function displayProductInfo(obj) {
-  console.log(`Назва товару: ${title}`);
-  console.log(`Ціна: ${price} грн`);
-  console.log(`Категорія: ${category}`);
-  console.log('Деталі:');
-  console.log(`- Бренд: ${brand}`);
-  console.log(`- Колір: ${color}`);
-  console.log(`- Вага: ${weight} кг`);
-}
-
-displayProductInfo(product);
-
-//? Деструктуризація в параметрах функції
 // function displayProductInfo(obj) {
+//   const {
+//     title,
+//     price,
+//     category,
+//     details: { brand, color, weight },
+//   } = obj;
 //   console.log(`Назва товару: ${title}`);
 //   console.log(`Ціна: ${price} грн`);
 //   console.log(`Категорія: ${category}`);
@@ -39,3 +32,16 @@ displayProductInfo(product);
 // }
 
 // displayProductInfo(product);
+
+//? Деструктуризація в параметрах функції
+function displayProductInfo({ title, price, category, details: { brand, color, weight }}) {
+  console.log(`Назва товару: ${title}`);
+  console.log(`Ціна: ${price} грн`);
+  console.log(`Категорія: ${category}`);
+  console.log('Деталі:');
+  console.log(`- Бренд: ${brand}`);
+  console.log(`- Колір: ${color}`);
+  console.log(`- Вага: ${weight} кг`);
+}
+
+displayProductInfo(product);

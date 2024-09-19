@@ -12,6 +12,11 @@ const user = {
   },
 };
 
-// console.log(`Ім'я користувача (за нікнеймом): ${username}`);
-// console.log(`Ім'я користувача: ${firstName}`);
-// console.log(`Прізвище користувача: ${lastName}`);
+const {
+  username,
+  profile: { firstName, lastName },
+} = user;
+
+console.log(`Ім'я користувача (за нікнеймом): ${username}`);
+console.log(`Ім'я користувача: ${firstName}`);
+console.log(`Прізвище користувача: ${lastName}`);

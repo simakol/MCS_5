@@ -5,8 +5,12 @@
 ? Функція повинна розрахувати та повернути периметр будинку.
  */
 
-function calculateHousePerimeter(obj) {
-  return sideA + sideB + sideC + sideD;
+// function calculateHousePerimeter({sideA, sideB, sideC, sideD}) {
+//   return sideA + sideB + sideC + sideD;
+// }
+
+function calculateHousePerimeter(sides) {
+  return Object.values(sides).reduce((sum, side) => sum + side, 0);
 }
 
 const houseSides = {

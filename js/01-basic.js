@@ -16,7 +16,20 @@
 //   age: 30,
 // };
 
+// const { firstName, lastName, age: userAge, isAdmin = false } = user;
+// const firstName = user.firstName;
+// const lastName = user.lastName;
+// const userAge = user.age;
+// const isAdmin = user.isAdmin || false;
+
 // console.log(user);
+// console.log(firstName);
+// console.log(lastName);
+// console.log(userAge);
+// console.log(isAdmin);
+// console.log(user.firstName);
+// console.log(user.lastName);
+// console.log(user.age);
 
 /*
  * Глибока деструктуризація об'єкта
@@ -31,6 +44,9 @@
 //     js: true,
 //   },
 // };
+
+// const { username, skills } = user;
+// const {html, css, js} = skills
 
 // console.log('username:', username);
 // console.log('skills:', skills);
@@ -48,6 +64,16 @@
 //   },
 // };
 
+// const {
+//   username,
+//   skills: { html, css, js },
+// } = user;
+
+// const username = user.username
+// const html = user.skills.html
+// const css = user.skills.css
+// const js = user.skills.js
+
 // console.log('username:', username);
 // console.log('html:', html);
 // console.log('css:', css);
@@ -61,19 +87,29 @@
 
 // console.log(fullNames);
 
+// const [fullName1, , fullName3] = fullNames;
+// const fullName1 = fullNames[0];
+// const fullName3 = fullNames[2];
+
 // console.log('fullName1:', fullName1);
 // console.log('fullName3:', fullName3);
 
 //* Операція rest при деструктуризації
-// const user = {
-//   firstName: 'John',
-//   lastName: 'Reese',
-//   age: 30,
-//   isAdmin: true,
-// };
+const user = {
+  firstName: 'John',
+  lastName: 'Reese',
+  age: 30,
+  isAdmin: true,
+};
 
-// console.log(user);
+// const firstName = user.firstName;
+// const lastName = user.lastName;
+// const otherProps = { age: 30, isAdmin: true };
 
-// console.log('firstName:', firstName);
-// console.log('lastName:', lastName);
-// console.log('otherProps:', otherProps);
+const { firstName, lastName, ...otherProps } = user;
+
+console.log(user);
+
+console.log('firstName:', firstName);
+console.log('lastName:', lastName);
+console.log('otherProps:', otherProps);
